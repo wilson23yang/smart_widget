@@ -142,7 +142,7 @@ SWAppBar(
 </p>
 
 ## SWAsyncSnapshotStatusWidget
-    a.统一处理网络加载过程状态，如加载中，异常状态，正常显示
+    a.统一处理网络加载过程状态，如加载中、异常状态，我们只需要关注正常显示处理逻辑
     b.可设置异常状态下是否重试，重试间隔随重试次数增大而增加，可缓解服务器请求压力
     c.可配置多种异常显示状态
     d.异常状态可手动重试
@@ -163,8 +163,30 @@ StreamBuilder<Object>(
 
 ## SWPopupMenu
 ```
-
+SWPopupMenu(
+      imagePath: more,
+      items: TradeConstant.managerMenus,
+      callback: (value) {
+        switch (value) {
+          case '订单记录':
+            break;
+          case '广告管理':
+            break;
+          case '收款方式':
+            break;
+          default:
+            break;
+        }
+      },
+    );
 ```
+
+<p align="center">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_popup_menu.jpg" alt="Sample"  width="280" height="180">
+	<p align="center">
+		<em>SWNetworkStatusWidget</em>
+	</p>
+</p>
 
 ## SWSwitch
 ```
@@ -172,6 +194,11 @@ StreamBuilder<Object>(
 ```
 
 ## SWTabs
+```
+
+```
+
+## DragLocationWidget
 ```
 
 ```

@@ -57,10 +57,10 @@ class PopupMenuConfig {
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
 ///  * [PopupMenuButton], an [IconButton] that automatically shows a menu when
 ///    it is tapped.
-abstract class SWPopupMenuEntry<T> extends StatefulWidget {
+abstract class WPopupMenuEntry<T> extends StatefulWidget {
   /// Abstract const constructor. This constructor enables subclasses to provide
   /// const constructors so that they can be used in const expressions.
-  const SWPopupMenuEntry({Key key}) : super(key: key);
+  const WPopupMenuEntry({Key key}) : super(key: key);
 
   /// The amount of vertical space occupied by this entry.
   ///
@@ -96,11 +96,11 @@ abstract class SWPopupMenuEntry<T> extends StatefulWidget {
 ///  * [PopupMenuButton], an [IconButton] that automatically shows a menu when
 ///    it is tapped.
 // ignore: prefer_void_to_null, https://github.com/dart-lang/sdk/issues/34416
-class SWPopupMenuDivider extends SWPopupMenuEntry<Null> {
+class WPopupMenuDivider extends WPopupMenuEntry<Null> {
   /// Creates a horizontal divider for a popup menu.
   ///
   /// By default, the divider has a height of 16 logical pixels.
-  const SWPopupMenuDivider(
+  const WPopupMenuDivider(
       {Key key,
       this.color = Colors.black,
       this.padding = const EdgeInsets.all(0),
@@ -121,10 +121,10 @@ class SWPopupMenuDivider extends SWPopupMenuEntry<Null> {
   bool represents(void value) => false;
 
   @override
-  _SWPopupMenuDividerState createState() => _SWPopupMenuDividerState();
+  _WPopupMenuDividerState createState() => _WPopupMenuDividerState();
 }
 
-class _SWPopupMenuDividerState extends State<SWPopupMenuDivider> {
+class _WPopupMenuDividerState extends State<WPopupMenuDivider> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -173,13 +173,13 @@ class _SWPopupMenuDividerState extends State<SWPopupMenuDivider> {
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
 ///  * [PopupMenuButton], an [IconButton] that automatically shows a menu when
 ///    it is tapped.
-class SWPopupMenuItem<T> extends SWPopupMenuEntry<T> {
+class WPopupMenuItem<T> extends WPopupMenuEntry<T> {
   /// Creates an item for a popup menu.
   ///
   /// By default, the item is [enabled].
   ///
   /// The `height` and `enabled` arguments must not be null.
-  const SWPopupMenuItem({
+  const WPopupMenuItem({
     Key key,
     this.value,
     this.enabled = true,
@@ -215,8 +215,8 @@ class SWPopupMenuItem<T> extends SWPopupMenuEntry<T> {
   bool represents(T value) => value == this.value;
 
   @override
-  SWPopupMenuItemState<T, SWPopupMenuItem<T>> createState() =>
-      SWPopupMenuItemState<T, SWPopupMenuItem<T>>();
+  WPopupMenuItemState<T, WPopupMenuItem<T>> createState() =>
+      WPopupMenuItemState<T, WPopupMenuItem<T>>();
 }
 
 /// The [State] for [PopupMenuItem] subclasses.
@@ -235,7 +235,7 @@ class SWPopupMenuItem<T> extends SWPopupMenuEntry<T> {
 /// the [Widget] that is using this [State]. It must be a subclass of
 /// [PopupMenuItem]. The first, `T`, must match the type argument of that widget
 /// class, and is the type of values returned from this menu.
-class SWPopupMenuItemState<T, W extends SWPopupMenuItem<T>>
+class WPopupMenuItemState<T, W extends WPopupMenuItem<T>>
     extends State<W> {
   /// The menu item contents.
   ///
@@ -641,7 +641,7 @@ class _PopupMenuRoute<T> extends PopupRoute<T> {
   });
 
   final RelativeRect position;
-  final List<SWPopupMenuEntry<T>> items;
+  final List<WPopupMenuEntry<T>> items;
   final dynamic initialValue;
   final double elevation;
   final ThemeData theme;
@@ -674,7 +674,7 @@ class _PopupMenuRoute<T> extends PopupRoute<T> {
     double selectedItemOffset;
     if (initialValue != null) {
       double y = _kMenuVerticalPadding;
-      for (SWPopupMenuEntry<T> entry in items) {
+      for (WPopupMenuEntry<T> entry in items) {
         if (entry.represents(initialValue)) {
           selectedItemOffset = y + entry.height / 2.0;
           break;
@@ -763,7 +763,7 @@ class _PopupMenuRoute<T> extends PopupRoute<T> {
 Future<T> showMenu<T>({
   @required BuildContext context,
   RelativeRect position,
-  @required List<SWPopupMenuEntry<T>> items,
+  @required List<WPopupMenuEntry<T>> items,
   T initialValue,
   double elevation = 8.0,
   String semanticLabel,
@@ -815,7 +815,7 @@ typedef PopupMenuCanceled = void Function();
 /// the button is pressed.
 ///
 /// Used by [PopupMenuButton.itemBuilder].
-typedef SWPopupMenuItemBuilder<T> = List<SWPopupMenuEntry<T>> Function(
+typedef WPopupMenuItemBuilder<T> = List<WPopupMenuEntry<T>> Function(
     BuildContext context);
 
 /// Displays a menu when pressed and calls [onSelected] when the menu is dismissed
@@ -869,11 +869,11 @@ typedef SWPopupMenuItemBuilder<T> = List<SWPopupMenuEntry<T>> Function(
 ///  * [PopupMenuDivider], a popup menu entry that is just a horizontal line.
 ///  * [CheckedPopupMenuItem], a popup menu item with a checkmark.
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
-class SWPopupMenuButton<T> extends StatefulWidget {
+class WPopupMenuButton<T> extends StatefulWidget {
   /// Creates a button that shows a popup menu.
   ///
   /// The [itemBuilder] argument must not be null.
-  const SWPopupMenuButton({
+  const WPopupMenuButton({
     Key key,
     @required this.itemBuilder,
     this.initialValue,
@@ -893,7 +893,7 @@ class SWPopupMenuButton<T> extends StatefulWidget {
         super(key: key);
 
   /// Called when the button is pressed to create the items to show in the menu.
-  final SWPopupMenuItemBuilder<T> itemBuilder;
+  final WPopupMenuItemBuilder<T> itemBuilder;
 
   /// The value of the menu item, if any, that should be highlighted when the menu opens.
   final T initialValue;
@@ -944,7 +944,7 @@ class SWPopupMenuButton<T> extends StatefulWidget {
   _PopupMenuButtonState<T> createState() => _PopupMenuButtonState<T>();
 }
 
-class _PopupMenuButtonState<T> extends State<SWPopupMenuButton<T>> {
+class _PopupMenuButtonState<T> extends State<WPopupMenuButton<T>> {
   void showButtonMenu() {
     final RenderBox button = context.findRenderObject();
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();

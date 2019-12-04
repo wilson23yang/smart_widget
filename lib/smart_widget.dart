@@ -12,7 +12,6 @@ export 'package:smart_widget/widget/sw_async_snapshot_status_widget.dart';
 export 'package:smart_widget/widget/sw_circle_progress.dart';
 export 'package:smart_widget/widget/sw_horizontal_progress.dart';
 export 'package:smart_widget/widget/sw_icon_button.dart';
-export 'package:smart_widget/widget/sw_popup_menu.dart';
 export 'package:smart_widget/widget/sw_scaffold.dart';
 export 'package:smart_widget/widget/sw_sector_widget.dart';
 export 'package:smart_widget/widget/sw_slider.dart';

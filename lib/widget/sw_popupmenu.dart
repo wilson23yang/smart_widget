@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:common_utils/utils/adaptive_util.dart';
-import 'package:smart_widget/widget/sw_popup_menu.dart';
+import 'package:smart_widget/widget/w_popup_menu_item.dart';
 
-class CommonPopupMenuButton extends StatelessWidget {
-  CommonPopupMenuButton({this.imagePath, this.items, this.callback});
+class SWPopupMenu extends StatelessWidget {
+  SWPopupMenu({this.imagePath, this.items, this.callback});
 
   final String imagePath;
-  final List<CommonPopupMenuItem> items;
+  final List<SWPopupMenuItem> items;
   final Function callback;
 
   @override
   Widget build(BuildContext context) {
-    return SWPopupMenuButton<String>(
+    return WPopupMenuButton<String>(
         child: Container(
           alignment: Alignment.center,
           height: Adaptive.width(28),
@@ -33,14 +33,14 @@ class CommonPopupMenuButton extends StatelessWidget {
         onSelected: callback ?? (_) {});
   }
 
-  List<SWPopupMenuEntry<String>> _buildPopupMenuItems(
+  List<WPopupMenuEntry<String>> _buildPopupMenuItems(
       BuildContext context) {
 
-    List<SWPopupMenuEntry<String>> itemViews =
-        <SWPopupMenuEntry<String>>[];
+    List<WPopupMenuEntry<String>> itemViews =
+        <WPopupMenuEntry<String>>[];
     List.generate(items.length, (int index) {
-      CommonPopupMenuItem item = items.elementAt(index);
-      itemViews.add(SWPopupMenuItem<String>(
+      SWPopupMenuItem item = items.elementAt(index);
+      itemViews.add(WPopupMenuItem<String>(
         height: Adaptive.width(48.0),
         value: item.title,
         child: Container(
@@ -85,7 +85,7 @@ class CommonPopupMenuButton extends StatelessWidget {
             )),
       ));
       if (index < items.length - 1) {
-        itemViews.add(SWPopupMenuDivider(
+        itemViews.add(WPopupMenuDivider(
           padding: EdgeInsets.only(
             left: Adaptive.width(10),
             right: Adaptive.width(10),
@@ -99,12 +99,12 @@ class CommonPopupMenuButton extends StatelessWidget {
   }
 }
 
-class CommonPopupMenuItem {
+class SWPopupMenuItem {
   final String imageName;
   final String title;
   final Color color;
 
-  CommonPopupMenuItem({this.imageName, this.title, this.color});
+  SWPopupMenuItem({this.imageName, this.title, this.color});
 
-  const CommonPopupMenuItem.build({this.imageName, this.title, this.color});
+  const SWPopupMenuItem.build({this.imageName, this.title, this.color});
 }
