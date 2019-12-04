@@ -23,18 +23,17 @@
         ),
         elevation: 0.0,
         centerTitle: true,
-        brightness:
-        AppStore.getThemeState() ? Brightness.dark : Brightness.light,
-        backgroundColor: `Colors.transparent`,
+        brightness:Brightness.dark,
+        backgroundColor: Colors.transparent,    //注意
       ),
-      body: NetworkStatusWidget(
+      body: SWNetworkStatusWidget(
         ctx: context,
         showNotConnectedToast: true,
         loadAgain: getData,
         child: StreamBuilder<Object>(
             stream: lampStreamController.stream,
             builder: (context, snapshot) {
-              return AsyncSnapshotStatusWidget(snapshot:snapshot,dataBuilder:(snapshotData){
+              return SWAsyncSnapshotStatusWidget(snapshot:snapshot,dataBuilder:(snapshotData){
                 return _buildRenderDataWidget(context,snapshotData);
               },reload: getData,);
             }
@@ -61,9 +60,8 @@
         ),
         elevation: 0.0,
         centerTitle: true,
-        brightness:
-        AppStore.getThemeState() ? Brightness.dark : Brightness.light,
-        backgroundColor: `Colors.transparent`,
+        brightness:Brightness.dark,
+        backgroundColor:  Colors.transparent ,    //注意
       ),
       body: Container(
       ),
@@ -73,7 +71,7 @@
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_scaffold.jpg" alt="Sample"  width="242" height="277">
 	<p align="center">
-		<em>图片示例2</em>
+		<em>SWScaffold</em>
 	</p>
 </p>
 
@@ -91,25 +89,60 @@
             ),
             elevation: 0.0,
             centerTitle: true,
-            brightness:
-            AppStore.getThemeState() ? Brightness.dark : Brightness.light,
-            backgroundColor: `Colors.transparent`,
+            brightness:Brightness.dark,
+            backgroundColor: Colors.transparent,    //注意
           ),
           body: Container(
           ),
         );
-  }    
+    }    
 ```
  
 
 ## SWNetworkStatusWidget
 ```
+SWNetworkStatusWidget(
+    ctx: context,
+    showNotConnectedToast: true,
+    loadAgain: getData,
+    child: StreamBuilder<Object>(
+        stream: lampStreamController.stream,
+        builder: (context, snapshot) {
+          return SWAsyncSnapshotStatusWidget(snapshot:snapshot,dataBuilder:(snapshotData){
+            return _buildRenderDataWidget(context,snapshotData);
+          },reload: getData,);
+        }
+    ),
+)
+
+<p align="center">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_network_status.jpg" alt="Sample"  width="225" height="167">
+	<p align="center">
+		<em>SWNetworkStatusWidget</em>
+	</p>
+</p>
 
 ```
 
-## SWNetworkStatusWidget
+## SWAppBar
 ```
+SWAppBar(
+    title: Text(
+      MyLocalizations.of(context).joyride,
+      style: Dimen.instance().textHomeTitleStyle,
+    ),
+    elevation: 0.0,
+    centerTitle: true,
+    brightness:Brightness.dark,
+    backgroundColor: Colors.transparent,    //注意
+)
 
+<p align="center">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_app_bar.jpg" alt="Sample"  width="242" height="156">
+	<p align="center">
+		<em>SWNetworkStatusWidget</em>
+	</p>
+</p>
 ```
 
 ## SWNetworkStatusWidget
