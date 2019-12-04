@@ -69,8 +69,8 @@
   }
 ```
     
-    <img src="https://github.com/wilson23yang/smart_widget/blob/master/img/sw_scaffold.jpg" align="left" height="363" width="415" />
-    <br>
+<img src="https://github.com/wilson23yang/smart_widget/blob/master/img/sw_scaffold.jpg" align="left" height="363" width="415" />
+</br>
 
 
 #### Example3:无沉浸式图片
