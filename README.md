@@ -44,7 +44,7 @@
   } 
 ```
 
-![](https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_scaffold.jpg)
+
 
 #### Example2:状态栏、action bar，还有部分body都包含有沉浸式图片
 
@@ -70,6 +70,14 @@
     );
   }
 ```
+<p align="center">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_scaffold.jpg" alt="Sample"  width="242" height="277">
+	<p align="center">
+		<em>图片示例2</em>
+	</p>
+</p>
+
+![](https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_scaffold.jpg)
 
 #### Example3:无沉浸式图片
     
