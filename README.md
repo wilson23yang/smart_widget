@@ -97,7 +97,6 @@
         );
     }    
 ```
- 
 
 ## SWNetworkStatusWidget
 ```
@@ -114,15 +113,13 @@ SWNetworkStatusWidget(
         }
     ),
 )
-
+```
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_network_status.jpg" alt="Sample"  width="225" height="167">
 	<p align="center">
 		<em>SWNetworkStatusWidget</em>
 	</p>
 </p>
-
-```
 
 ## SWAppBar
 ```
@@ -136,21 +133,45 @@ SWAppBar(
     brightness:Brightness.dark,
     backgroundColor: Colors.transparent,    //注意
 )
-
+```
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_app_bar.jpg" alt="Sample"  width="242" height="156">
 	<p align="center">
 		<em>SWNetworkStatusWidget</em>
 	</p>
 </p>
+
+## SWAsyncSnapshotStatusWidget
+    a.统一处理网络加载过程状态，如加载中，异常状态，正常显示
+    b.可设置异常状态下是否重试，重试间隔随重试次数增大而增加，可缓解服务器请求压力
+    c.可配置多种异常显示状态
+    d.异常状态可手动重试
+    
+  ** 注：该widget需要与StreamBuilder/FutureBuilder配合使用 **
+    
+
+```
+StreamBuilder<Object>(
+    stream: lampStreamController.stream,
+    builder: (context, snapshot) {
+      return SWAsyncSnapshotStatusWidget(snapshot:snapshot,dataBuilder:(snapshotData){
+        return _buildRenderDataWidget(context,snapshotData);
+      },reload: getData,);
+    }
+)
 ```
 
-## SWNetworkStatusWidget
+## SWPopupMenu
 ```
 
 ```
 
-## SWNetworkStatusWidget
+## SWSwitch
+```
+
+```
+
+## SWTabs
 ```
 
 ```
