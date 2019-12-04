@@ -13,10 +13,10 @@
   @override
   Widget build(BuildContext context) {
 
-    return CommonScaffold(
+    return SWScaffold(
       permeateImage: top_head,
       backgroundColor: ColorUtil.color0F1928,
-      appBar:  AppBar(
+      appBar:  SWAppBar(
         title: Text(
           MyLocalizations.of(context).joyride,
           style: Dimen.instance().textHomeTitleStyle,
@@ -25,7 +25,7 @@
         centerTitle: true,
         brightness:
         AppStore.getThemeState() ? Brightness.dark : Brightness.light,
-        backgroundColor: Colors.transparent,
+        backgroundColor: `Colors.transparent`,
       ),
       body: NetworkStatusWidget(
         ctx: context,
@@ -51,11 +51,11 @@
 ```
   @override
   Widget build(BuildContext context) {
-    return CommonScaffold(
+    return SWScaffold(
       backgroundColor: ColorUtil.color0F1928,
       permeateImage: asset_top_background,
       permeateBodyHeight : Adaptive.width(175),              body显示部分
-      appBar: AppBar(
+      appBar: SWAppBar(
         title: Text( '${MyLocalizations.of(context).asset}',
           style: Dimen.instance().textHomeTitleStyle,
         ),
@@ -63,7 +63,7 @@
         centerTitle: true,
         brightness:
         AppStore.getThemeState() ? Brightness.dark : Brightness.light,
-        backgroundColor: Colors.transparent,
+        backgroundColor: `Colors.transparent`,
       ),
       body: Container(
       ),
@@ -77,16 +77,15 @@
 	</p>
 </p>
 
-![](https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_scaffold.jpg)
 
 #### Example3:无沉浸式图片
     
 ```
     @override
     Widget build(BuildContext context) {
-        return CommonScaffold(
+        return SWScaffold(
           backgroundColor: ColorUtil.color0F1928,
-          appBar: AppBar(
+          appBar: SWAppBar(
             title: Text( '${MyLocalizations.of(context).asset}',
               style: Dimen.instance().textHomeTitleStyle,
             ),
@@ -94,7 +93,7 @@
             centerTitle: true,
             brightness:
             AppStore.getThemeState() ? Brightness.dark : Brightness.light,
-            backgroundColor: Colors.transparent,
+            backgroundColor: `Colors.transparent`,
           ),
           body: Container(
           ),
