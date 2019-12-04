@@ -44,6 +44,8 @@
   } 
 ```
 
+![](https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_scaffold.jpg)
+
 #### Example2:状态栏、action bar，还有部分body都包含有沉浸式图片
 
 ```
@@ -68,10 +70,6 @@
     );
   }
 ```
-    
-<img src="https://github.com/wilson23yang/smart_widget/blob/master/img/sw_scaffold.jpg" align="left" />
-
-
 
 #### Example3:无沉浸式图片
     
