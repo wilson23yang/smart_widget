@@ -162,6 +162,7 @@ StreamBuilder<Object>(
 ```
 
 ## SWPopupMenu
+
 ```
 SWPopupMenu(
       imagePath: more,
@@ -184,7 +185,7 @@ SWPopupMenu(
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_popup_menu.jpg" alt="Sample"  width="280" height="180">
 	<p align="center">
-		<em>SWNetworkStatusWidget</em>
+		<em>SWPopupMenu</em>
 	</p>
 </p>
 
