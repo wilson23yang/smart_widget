@@ -7,7 +7,7 @@
     要显示沉浸式的action bar，需要将AppBar的背景色设置为透明色
     
 
-    Example1:仅状态栏与action bar实现沉浸式    
+#### Example1:仅状态栏与action bar实现沉浸式    
 
 ```
   @override
@@ -44,7 +44,7 @@
   } 
 ```
 
-    Example2:状态栏、action bar，还有部分body都包含有沉浸式图片
+#### Example2:状态栏、action bar，还有部分body都包含有沉浸式图片
 
 ```
   @override
@@ -69,11 +69,11 @@
   }
 ```
     
-    <img src="https://github.com/wilson23yang/smart_widget/blob/master/img/sw_scaffold.jpg" align="left" height="363" width="415" >
-    </br>
+    <img src="https://github.com/wilson23yang/smart_widget/blob/master/img/sw_scaffold.jpg" align="left" height="363" width="415" />
+    <br>
 
 
-    Example3:无沉浸式图片
+#### Example3:无沉浸式图片
     
 ```
     @override
