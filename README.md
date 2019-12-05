@@ -42,6 +42,9 @@
     );
   } 
 ```
+<p align="center">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_app_bar.jpg" alt="Sample"  width="242" height="156">
+</p>
 
 
 
