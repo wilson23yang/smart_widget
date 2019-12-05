@@ -165,21 +165,21 @@ StreamBuilder<Object>(
 
 ```
 SWPopupMenu(
-      imagePath: more,
-      items: TradeConstant.managerMenus,
-      callback: (value) {
-        switch (value) {
-          case '订单记录':
-            break;
-          case '广告管理':
-            break;
-          case '收款方式':
-            break;
-          default:
-            break;
-        }
-      },
-    );
+  imagePath: more,
+  items: TradeConstant.managerMenus,
+  callback: (value) {
+    switch (value) {
+      case '订单记录':
+        break;
+      case '广告管理':
+        break;
+      case '收款方式':
+        break;
+      default:
+        break;
+    }
+  },
+);
 ```
 
 <p align="center">
@@ -191,13 +191,88 @@ SWPopupMenu(
 
 ## SWSwitch
 ```
-
+SWSwitch(
+    value: item.enable,
+    onChanged: (bool value) {
+      enableBankcard(item);
+    },
+    activeColor: Colors.white,
+    inactiveColor: Colors.white.withOpacity(0.4),
+    thumbColor: getItemBgColor(bankcard: item),
+    inactiveThumbColor: getItemBgColor(bankcard: item),
+    width: Adaptive.width(26),
+    height: Adaptive.width(13),
+)
 ```
+<p align="center">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_switch.jpg" alt="Sample"  width="267" height="413">
+	<p align="center">
+		<em>SWPopupMenu</em>
+	</p>
+</p>
 
 ## SWTabs
 ```
-
+SWTabBar(
+    key: klineTabBarKey,
+    isScrollable: true,
+    controller: klineTabController,
+    indicatorSize: SWTabBarIndicatorSize.tab,
+    labelStyle: TextStyle(fontSize: 13, fontWeight: FontWeight.normal),
+    unselectedLabelStyle: TextStyle(fontSize: 11),
+    tabs: List.generate(klineBarItemData.klineTabBars.length,(int index) {
+      if (index < 5) {
+        return Text(klineBarItemData.klineTabBars[index] ?? '');
+      } else {
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              '${klineBarItemData.klineTabBars[index]}',
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: Adaptive.width(2)),
+              child: Image.asset(klineBarItemData.rightTriangle),
+            ),
+          ],
+        );
+      }
+    }).toList(),
+    tapIntercept: (int index) {
+      if (index < 5) {
+        klineBarItemData.klineTabBars[
+                klineBarItemData.klineTabBars.length - 1] =
+            KlineTarBarItemData.moreItem;
+        klineBarItemData.currentMoreStyle =
+            klineBarItemData.moreItemDartTextStyle;
+        setState(() {});
+        return true;
+      } else {
+        if (klineBarItemData.klineTabBars[index] ==
+            KlineTarBarItemData.moreItem) {
+          klineBarItemData.currentMoreStyle =
+              klineBarItemData.moreItemLightTextStyle;
+          setState(() {});
+          showKlineHideItemBar();
+          return false;
+        } else {
+          showKlineHideItemBar();
+          return true;
+        }
+      }
+    },
+)
 ```
+
+<p align="center">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_tab_bar_1.jpg" alt="Sample"  width="260" height="171">
+	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_tab_bar_2.jpg" alt="Sample"  width="260" height="157">
+	<p align="center">
+		<em>SWPopupMenu</em>
+	</p>
+</p>
 
 ## DragLocationWidget
 ```

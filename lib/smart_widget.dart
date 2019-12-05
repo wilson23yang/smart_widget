@@ -16,11 +16,8 @@ export 'package:smart_widget/widget/sw_scaffold.dart';
 export 'package:smart_widget/widget/sw_sector_widget.dart';
 export 'package:smart_widget/widget/sw_slider.dart';
 export 'package:smart_widget/widget/sw_switch.dart';
-export 'package:smart_widget/widget/sw_tabbar.dart';
-export 'package:smart_widget/widget/sw_tabs.dart';
+export 'package:smart_widget/widget/sw_tab_bar.dart';
 export 'package:smart_widget/widget/sw_wave_progress.dart';
-export 'package:smart_widget/widget/sw_tabbar.dart';
-export 'package:smart_widget/widget/sw_tabbar.dart';
 
 
 

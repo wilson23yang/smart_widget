@@ -1,27 +1,10 @@
-// Copyright 2015 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'dart:async';
 import 'dart:ui' show lerpDouble;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/gestures.dart' show DragStartBehavior;
 
-
-//import 'app_bar.dart';
-//import 'colors.dart';
-//import 'constants.dart';
-//import 'debug.dart';
-//import 'ink_well.dart';
-//import 'material.dart';
-//import 'material_localizations.dart';
-//import 'tab_bar_theme.dart';
-//import 'tab_controller.dart';
-//import 'tab_indicator.dart';
-//import 'theme.dart';
 
 const double _kTabHeight = 46.0;
 const double _kTextAndIconTabHeight = 72.0;
@@ -42,7 +25,7 @@ enum SWTabBarIndicatorSize {
 
   /// The tab's bounds are only as wide as the (centered) tab widget itself.
   ///
-  /// This value is used to align the tab's label, typically a [Tab]
+  /// This value is used to align the tab's label, typically a [SWTab]
   /// widget's text or icon, with the selected tab indicator.
   label,
 }
@@ -56,11 +39,11 @@ enum SWTabBarIndicatorSize {
 ///  * [TabBarView], which displays a widget for the currently selected tab.
 ///  * [TabController], which coordinates tab selection between a [TabBar] and a [TabBarView].
 ///  * <https://material.io/design/components/tabs.html>
-class Tab extends StatelessWidget {
+class SWTab extends StatelessWidget {
   /// Creates a material design [TabBar] tab. At least one of [text], [icon],
   /// and [child] must be non-null. The [text] and [child] arguments must not be
   /// used at the same time.
-  const Tab({
+  const SWTab({
     Key key,
     this.text,
     this.icon,
@@ -132,8 +115,8 @@ class Tab extends StatelessWidget {
   }
 }
 
-class _TabStyle extends AnimatedWidget {
-  const _TabStyle({
+class _SWTabStyle extends AnimatedWidget {
+  const _SWTabStyle({
     Key key,
     Animation<double> animation,
     this.selected,
@@ -190,8 +173,8 @@ class _TabStyle extends AnimatedWidget {
 
 typedef _LayoutCallback = void Function(List<double> xOffsets, TextDirection textDirection, double width);
 
-class _TabLabelBarRenderer extends RenderFlex {
-  _TabLabelBarRenderer({
+class _SWTabLabelBarRenderer extends RenderFlex {
+  _SWTabLabelBarRenderer({
     List<RenderBox> children,
     @required Axis direction,
     @required MainAxisSize mainAxisSize,
@@ -245,8 +228,8 @@ class _TabLabelBarRenderer extends RenderFlex {
 // This class and its renderer class only exist to report the widths of the tabs
 // upon layout. The tab widths are only used at paint time (see _IndicatorPainter)
 // or in response to input.
-class _TabLabelBar extends Flex {
-  _TabLabelBar({
+class _SWTabLabelBar extends Flex {
+  _SWTabLabelBar({
     Key key,
     List<Widget> children = const <Widget>[],
     this.onPerformLayout,
@@ -264,7 +247,7 @@ class _TabLabelBar extends Flex {
 
   @override
   RenderFlex createRenderObject(BuildContext context) {
-    return _TabLabelBarRenderer(
+    return _SWTabLabelBarRenderer(
       direction: direction,
       mainAxisAlignment: mainAxisAlignment,
       mainAxisSize: mainAxisSize,
@@ -276,7 +259,7 @@ class _TabLabelBar extends Flex {
   }
 
   @override
-  void updateRenderObject(BuildContext context, _TabLabelBarRenderer renderObject) {
+  void updateRenderObject(BuildContext context, _SWTabLabelBarRenderer renderObject) {
     super.updateRenderObject(context, renderObject);
     renderObject.onPerformLayout = onPerformLayout;
   }
@@ -463,8 +446,8 @@ class _DragAnimation extends Animation<double> with AnimationWithParentMixin<dou
 // where a scrollable TabBar has a non-zero initialIndex. In that case we can
 // only compute the scroll position's initial scroll offset (the "correct"
 // pixels value) after the TabBar viewport width and scroll limits are known.
-class _TabBarScrollPosition extends ScrollPositionWithSingleContext {
-  _TabBarScrollPosition({
+class _SWTabBarScrollPosition extends ScrollPositionWithSingleContext {
+  _SWTabBarScrollPosition({
     ScrollPhysics physics,
     ScrollContext context,
     ScrollPosition oldPosition,
@@ -476,7 +459,7 @@ class _TabBarScrollPosition extends ScrollPositionWithSingleContext {
     oldPosition: oldPosition,
   );
 
-  final _TabBarState tabBar;
+  final _SWTabBarState tabBar;
 
   bool _initialViewportDimensionWasZero;
 
@@ -502,14 +485,14 @@ class _TabBarScrollPosition extends ScrollPositionWithSingleContext {
 
 // This class, and TabBarScrollPosition, only exist to handle the case
 // where a scrollable TabBar has a non-zero initialIndex.
-class _TabBarScrollController extends ScrollController {
-  _TabBarScrollController(this.tabBar);
+class _SWTabBarScrollController extends ScrollController {
+  _SWTabBarScrollController(this.tabBar);
 
-  final _TabBarState tabBar;
+  final _SWTabBarState tabBar;
 
   @override
   ScrollPosition createScrollPosition(ScrollPhysics physics, ScrollContext context, ScrollPosition oldPosition) {
-    return _TabBarScrollPosition(
+    return _SWTabBarScrollPosition(
       physics: physics,
       context: context,
       oldPosition: oldPosition,
@@ -577,7 +560,7 @@ class SWTabBar extends StatefulWidget implements PreferredSizeWidget {
         assert(indicator != null || (indicatorPadding != null)),
         super(key: key);
 
-  /// Typically a list of two or more [Tab] widgets.
+  /// Typically a list of two or more [SWTab] widgets.
   ///
   /// The length of this list must match the [controller]'s [TabController.length].
   final List<Widget> tabs;
@@ -611,8 +594,8 @@ class SWTabBar extends StatefulWidget implements PreferredSizeWidget {
 
   /// The horizontal padding for the line that appears below the selected tab.
   /// For [isScrollable] tab bars, specifying [kTabLabelPadding] will align
-  /// the indicator with the tab's text for [Tab] widgets and all but the
-  /// shortest [Tab.text] values.
+  /// the indicator with the tab's text for [SWTab] widgets and all but the
+  /// shortest [SWTab.text] values.
   ///
   /// The [EdgeInsets.top] and [EdgeInsets.bottom] values of the
   /// [indicatorPadding] are ignored.
@@ -707,8 +690,8 @@ class SWTabBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize {
     for (Widget item in tabs) {
-      if (item is Tab) {
-        final Tab tab = item;
+      if (item is SWTab) {
+        final SWTab tab = item;
         if (tab.text != null && tab.icon != null)
           return Size.fromHeight(_kTextAndIconTabHeight + indicatorWeight);
       }
@@ -717,10 +700,10 @@ class SWTabBar extends StatefulWidget implements PreferredSizeWidget {
   }
 
   @override
-  _TabBarState createState() => _TabBarState();
+  _SWTabBarState createState() => _SWTabBarState();
 }
 
-class _TabBarState extends State<SWTabBar> {
+class _SWTabBarState extends State<SWTabBar> {
   ScrollController _scrollController;
   TabController _controller;
   _IndicatorPainter _indicatorPainter;
@@ -935,7 +918,7 @@ class _TabBarState extends State<SWTabBar> {
   }
 
   Widget _buildStyledTab(Widget child, bool selected, Animation<double> animation) {
-    return _TabStyle(
+    return _SWTabStyle(
       animation: animation,
       selected: selected,
       labelColor: widget.labelColor,
@@ -1046,14 +1029,14 @@ class _TabBarState extends State<SWTabBar> {
 
     Widget tabBar = CustomPaint(
       painter: _indicatorPainter,
-      child: _TabStyle(
+      child: _SWTabStyle(
         animation: kAlwaysDismissedAnimation,
         selected: false,
         labelColor: widget.labelColor,
         unselectedLabelColor: widget.unselectedLabelColor,
         labelStyle: widget.labelStyle,
         unselectedLabelStyle: widget.unselectedLabelStyle,
-        child: _TabLabelBar(
+        child: _SWTabLabelBar(
           onPerformLayout: _saveTabOffsets,
           children: wrappedTabs,
         ),
@@ -1061,7 +1044,7 @@ class _TabBarState extends State<SWTabBar> {
     );
 
     if (widget.isScrollable) {
-      _scrollController ??= _TabBarScrollController(this);
+      _scrollController ??= _SWTabBarScrollController(this);
       tabBar = SingleChildScrollView(
         dragStartBehavior: widget.dragStartBehavior,
         scrollDirection: Axis.horizontal,
@@ -1117,12 +1100,12 @@ class SWTabBarView extends StatefulWidget {
   final DragStartBehavior dragStartBehavior;
 
   @override
-  _TabBarViewState createState() => _TabBarViewState();
+  _SWTabBarViewState createState() => _SWTabBarViewState();
 }
 
 final PageScrollPhysics _kTabBarViewPhysics = const PageScrollPhysics().applyTo(const ClampingScrollPhysics());
 
-class _TabBarViewState extends State<SWTabBarView> {
+class _SWTabBarViewState extends State<SWTabBarView> {
   TabController _controller;
   PageController _pageController;
   List<Widget> _children;
@@ -1273,12 +1256,12 @@ class _TabBarViewState extends State<SWTabBarView> {
 
 /// Displays a single circle with the specified border and background colors.
 ///
-/// Used by [TabPageSelector] to indicate the selected page.
-class TabPageSelectorIndicator extends StatelessWidget {
-  /// Creates an indicator used by [TabPageSelector].
+/// Used by [SWTabPageSelector] to indicate the selected page.
+class SWTabPageSelectorIndicator extends StatelessWidget {
+  /// Creates an indicator used by [SWTabPageSelector].
   ///
   /// The [backgroundColor], [borderColor], and [size] parameters must not be null.
-  const TabPageSelectorIndicator({
+  const SWTabPageSelectorIndicator({
     Key key,
     @required this.backgroundColor,
     @required this.borderColor,
@@ -1317,9 +1300,9 @@ class TabPageSelectorIndicator extends StatelessWidget {
 ///
 /// If a [TabController] is not provided, then there must be a [DefaultTabController]
 /// ancestor.
-class TabPageSelector extends StatelessWidget {
+class SWTabPageSelector extends StatelessWidget {
   /// Creates a compact widget that indicates which tab has been selected.
-  const TabPageSelector({
+  const SWTabPageSelector({
     Key key,
     this.controller,
     this.indicatorSize = 12.0,
@@ -1379,7 +1362,7 @@ class TabPageSelector extends StatelessWidget {
         background = selectedColorTween.begin;
       }
     }
-    return TabPageSelectorIndicator(
+    return SWTabPageSelectorIndicator(
       backgroundColor: background,
       borderColor: selectedColorTween.end,
       size: indicatorSize,
