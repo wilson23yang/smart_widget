@@ -207,7 +207,7 @@ SWSwitch(
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_switch.jpg" alt="Sample"  width="267" height="413">
 	<p align="center">
-		<em>SWPopupMenu</em>
+		<em>SWSwitch</em>
 	</p>
 </p>
 
@@ -270,11 +270,19 @@ SWTabBar(
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_tab_bar_1.jpg" alt="Sample"  width="260" height="171">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_tab_bar_2.jpg" alt="Sample"  width="260" height="157">
 	<p align="center">
-		<em>SWPopupMenu</em>
+		<em>SWTabs</em>
 	</p>
 </p>
 
 ## DragLocationWidget
 ```
-
+DragLocationWidget(
+    dragLocationCallback: dragLocationCallback,
+),
 ```
+<p align="center">
+	<img src="https://github.com/wilson23yang/country_code/blob/master/example/img/page.jpg" align="left" height="769" width="388" >
+	<p align="center">
+		<em>DragLocationWidget</em>
+	</p>
+</p>
