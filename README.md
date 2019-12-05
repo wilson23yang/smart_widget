@@ -70,9 +70,6 @@
 ```
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_scaffold.jpg" alt="Sample"  width="242" height="277">
-	<p align="center">
-		<em>SWScaffold</em>
-	</p>
 </p>
 
 
@@ -116,9 +113,6 @@ SWNetworkStatusWidget(
 ```
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_network_status.jpg" alt="Sample"  width="225" height="167">
-	<p align="center">
-		<em>SWNetworkStatusWidget</em>
-	</p>
 </p>
 
 ## SWAppBar
@@ -136,9 +130,6 @@ SWAppBar(
 ```
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_app_bar.jpg" alt="Sample"  width="242" height="156">
-	<p align="center">
-		<em>SWNetworkStatusWidget</em>
-	</p>
 </p>
 
 ## SWAsyncSnapshotStatusWidget
@@ -184,9 +175,6 @@ SWPopupMenu(
 
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_popup_menu.jpg" alt="Sample"  width="280" height="180">
-	<p align="center">
-		<em>SWPopupMenu</em>
-	</p>
 </p>
 
 ## SWSwitch
@@ -206,9 +194,6 @@ SWSwitch(
 ```
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_switch.jpg" alt="Sample"  width="267" height="413">
-	<p align="center">
-		<em>SWSwitch</em>
-	</p>
 </p>
 
 ## SWTabs
@@ -269,9 +254,6 @@ SWTabBar(
 <p align="center">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_tab_bar_1.jpg" alt="Sample"  width="260" height="171">
 	<img src="https://github.com/wilson23yang/smart_widget/blob/master/raw/sw_tab_bar_2.jpg" alt="Sample"  width="260" height="157">
-	<p align="center">
-		<em>SWTabs</em>
-	</p>
 </p>
 
 ## DragLocationWidget
@@ -282,7 +264,4 @@ DragLocationWidget(
 ```
 <p align="center">
 	<img src="https://github.com/wilson23yang/country_code/blob/master/example/img/page.jpg" align="left" height="769" width="388" >
-	<p align="center">
-		<em>DragLocationWidget</em>
-	</p>
 </p>
